@@ -2,12 +2,12 @@ var colorDict = {
   "deposit": { "backgroundColor":"#26D0B4", "hoverBackgroundColor": "#64ECD5" },
   "withdraw": { "backgroundColor":"#F7464A", "hoverBackgroundColor": "#FF5A5E" },
   "transfer": { "backgroundColor":"#FDB45C", "hoverBackgroundColor": "#FFC870" },
-  "bill": { "backgroundColor":"#3B6BD3", "hoverBackgroundColor": "#628BE4" }
+  "bill_payment": { "backgroundColor":"#3B6BD3", "hoverBackgroundColor": "#628BE4" }
 };
 
 function renderChart( chartElementId, chartType, responseFromBackend )
 {
-    drawChart( chartElementId, chartType, buildChartDataSet( $.parseJSON( responseFromBackend ).transactions ) );
+    drawChart( chartElementId, chartType, buildChartDataSet( responseFromBackend.transactionTypes ) );
 }
 
 function drawChart( chartElementId, chartType, chartDataSet )
@@ -35,10 +35,10 @@ function buildChartDataSet( trans )
 {
      var labels = [], data = [], backgroundColor = [], hoverBackgroundColor = [];
      $.each(trans, function(index, item) {
-           labels.push(item.transactionName);
-           data.push(item.transactionValue);
-           backgroundColor.push( colorDict[ item.transactionName.toLowerCase() ].backgroundColor );
-           hoverBackgroundColor.push( colorDict[ item.transactionName.toLowerCase() ].hoverBackgroundColor );
+           labels.push(item.type);
+           data.push(item.summaryAmount);
+           backgroundColor.push( colorDict[ item.type.toLowerCase() ].backgroundColor );
+           hoverBackgroundColor.push( colorDict[ item.type.toLowerCase() ].hoverBackgroundColor );
       })
 
      var chartDataSet = { labels: labels, data: data, backgroundColor: backgroundColor, hoverBackgroundColor: hoverBackgroundColor};

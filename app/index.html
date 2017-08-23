@@ -76,13 +76,9 @@
 <script>
 
     $( window ).on( "load", function() {
-        //Mock Response
-        //var responseFromBackend = '{"transactions": [ {"transactionName": "Deposit", "transactionValue": 1000},{"transactionName": "Withdraw", "transactionValue": 2000},{"transactionName": "Transfer", "transactionValue": 3000},{"transactionName": "Bill", "transactionValue": 4000}]}';
-        var responseFromBackend = '{"transactions": [ {"transactionName": "withdraw", "transactionValue": 2000},{"transactionName": "Deposit", "transactionValue": 1000}, {"transactionName": "Transfer", "transactionValue": 3000},{"transactionName": "Bill", "transactionValue": 4000}]}';
-
-        renderChart( "pieChart", "pie", responseFromBackend );
-
-        callGetAccountSummary(3);
+		var mockAccountId = 5;
+        callGetChartData( "pieChart", "pie", mockAccountId );
+        callGetAccountSummary( mockAccountId );
        
     });
 

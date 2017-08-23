@@ -45,6 +45,11 @@ function callGetAccountSummary(accountId){
     makeGETRequest('/accountSummary/accountId/'+ accountId, '', drawAccountSummary);
 }
 
+function callGetChartData( chartElementId, chartType, accountId ){
+    makeGETRequest( '/dashboard/piechart/'+ accountId, '', function ( data ){ renderChart( chartElementId, chartType, data ) } );
+}
+
+
 function drawAccountSummary(accountSummary){
     $('.accounSummary').append('<div class="panel panel-primary"> ' +
                                     '<div class="panel-heading">' +
