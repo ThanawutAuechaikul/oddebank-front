@@ -42,18 +42,15 @@ var transactionData = [{
 drawTable(transactionData);
 
 function callGetAccountSummary(accountId){
-    makeRequest('/accountSummary/accountId/'+ accountId, '', drawAccountSummary , 'GET');
+    makeGETRequest('/accountSummary/accountId/'+ accountId, '', drawAccountSummary);
 }
 
-
-function drawAccountSummary(data){
+function drawAccountSummary(accountSummary){
     $('.accounSummary').append('<div class="panel panel-primary"> ' +
                                     '<div class="panel-heading">' +
                                         '<h3 class="panel-title"> Account Summary </h3> </div>' + 
-                                    '<div class="panel-body"> Account Number : ' + data.accountNumber +'</br>' + 
-                                        'Balance : ' + data.balance + '</div></div>');                     
-    console.log(data);
-
+                                    '<div class="panel-body"> Account Number : <span id="accountNumber">' + accountSummary.accountNumber +'</span></br>' + 
+                                        'Balance : <span id="accountBalance">' + accountSummary.balance + '</span></div></div>');             
 }
 
 
