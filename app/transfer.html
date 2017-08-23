@@ -1,0 +1,84 @@
+<html>
+<head>
+<link href="../node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../node_modules/mdbootstrap/css/mdb.min.css" rel="stylesheet">
+<link href="../node_modules/mdbootstrap/css/style.css" rel="stylesheet">
+<link href="css/bankUI.css" rel="stylesheet" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+
+
+<title>Dashboard</title>
+</head>
+<body>
+
+
+<div class="row body" >
+	<div class="col-md-3 menu" style="background-color:lavender;"> 
+         <div class="vertical-menu">
+         <a href="index.html"> Home </a>
+         <a href="#"  class="active" > Transfer </a>
+         <a href="#"> Transaction History </a>
+         </div>
+	</div>
+	<div class="col-md-9" style="background-color:lavenderblush;">
+		<div>
+			<form>
+				<div class="form-group row">
+					<label for="fromAccount" class="col-sm-2 col-form-label">From</label>
+					<div class="col-sm-5">
+						<select id="fromAccount">
+						</select>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="toAccount" class="col-sm-2 col-form-label">To</label>
+					<div class="col-sm-5">
+						<input type="text" id="toAccount" maxlength="15">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="amount" class="col-sm-2 col-form-label">Amount</label>
+					<div class="col-sm-5">
+						<input type="number" id="amount" min="1">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="remark" class="col-sm-2 col-form-label">Note</label>
+					<div class="col-sm-5">
+						<textarea id="remark" maxlength="144">
+						</textarea>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="offset-sm-2 col-sm-5">
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="../node_modules/mdbootstrap/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../node_modules/mdbootstrap/js/popper.min.js"></script>
+<script type="text/javascript" src="../node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../node_modules/mdbootstrap/js/mdb.min.js"></script>
+<script type="text/javascript" src="js/apiClient.js"></script>
+<script type="text/javascript" src="js/bankUI.js"></script>
+<script>
+	makeGETRequest('/getAccountListByUserId/'+ "1", '', loadAccountList);
+
+	function loadAccountList(accountList) {
+	    for (var i=0; i<accountList.length; i++) {
+	        $('#fromAccount').append("<option value=" + accountList[i].id + ">" + accountList[i].accountNumber + " (" + accountList[i].balance + ")</option>");
+		}
+	}
+</script>
+</body>
+</html>
+
+<!--
+(2) [{…}, {…}]0: {id: "1", accountNumber: "4558874165", balance: 1420, fullName: "Clark Kent"}1:
+{id: "2", accountNumber: "4558874144", balance: 500, fullName: "Clark Kent"}
+length: 2_ -->
