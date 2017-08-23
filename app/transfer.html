@@ -71,14 +71,19 @@
 
 	function loadAccountList(accountList) {
 	    for (var i=0; i<accountList.length; i++) {
-	        $('#fromAccount').append("<option value=" + accountList[i].id + ">" + accountList[i].accountNumber + " (" + accountList[i].balance + ")</option>");
+	        $('#fromAccount').append("<option value=" + accountList[i].id + ">" +
+				formatAccountDisplay(accountList[i].accountNumber) + " (" + formatNumberDisplay(accountList[i].balance) +
+				")</option>");
 		}
 	}
+
+    function formatNumberDisplay(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function formatAccountDisplay(x) {
+        return x.replace(/(\d{3})(\d{3})(\d{3})(\d{1})/, "$1-$2-$3-$4");
+    }
 </script>
 </body>
 </html>
-
-<!--
-(2) [{…}, {…}]0: {id: "1", accountNumber: "4558874165", balance: 1420, fullName: "Clark Kent"}1:
-{id: "2", accountNumber: "4558874144", balance: 500, fullName: "Clark Kent"}
-length: 2_ -->
