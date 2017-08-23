@@ -10,3 +10,12 @@ QUnit.test( "Test buildChartDataSet", function( assert ) {
   assert.deepEqual( actualChartDataSet.hoverBackgroundColor, ["#FF5A5E", "#64ECD5", "#FFC870", "#628BE4"], "Check HoverBackgroundColor array." );
   
 });
+
+QUnit.test( "Test render Chart" , function(assert){
+  $('#qunit-fixture').append('<canvas id="pieChart"></canvas>');
+  var responseFromBackend = '{"transactions": [ {"transactionName": "withdraw", "transactionValue": 2000},{"transactionName": "Deposit", "transactionValue": 1000}, {"transactionName": "Transfer", "transactionValue": 3000},{"transactionName": "Bill", "transactionValue": 4000}]}';
+  
+  renderChart( "pieChart", "pie", responseFromBackend );
+
+  assert.equal($('.chartjs-hidden-iframe').length,1,'piechart appear');
+});
