@@ -32,3 +32,17 @@
     background-color: #4CAF50; /* Add a green color to the "active/current" link */
     color: white;
 }
+
+.row{
+    margin-top:40px;
+    padding: 0 10px;
+}
+
+.clickable{
+    cursor: pointer;   
+}
+
+.panel-heading span {
+    margin-top: -20px;
+    font-size: 15px;
+}

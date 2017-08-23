@@ -4,11 +4,14 @@
 <link href="css/external/mdb.min.css" rel="stylesheet">
 <link href="css/external/style.css" rel="stylesheet">
 <link href="css/bankUI.css" rel="stylesheet" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
 
 
 <title>Dashboard</title>
 </head>
 <body>
+
 
 <div class="row body" >
 	<div class="col-md-3 menu" style="background-color:lavender;"> 
@@ -19,9 +22,47 @@
          </div>
 	</div>
 	<div class="col-md-9" style="background-color:lavenderblush;"> 
-	<div class="chartArea">
-		<canvas id="pieChart"></canvas>
+	<div class="piearea">
+		    <div class="row">
+			    <div class="col">
+			     <div class="accounSummary">		
+			    	    	
+			     </div>
+			    
+			    </div>
+			    <div class="col">
+			      <canvas id="pieChart"></canvas>
+			    </div>
+			     
+			     <div class="col">
+			      1 of 3
+			    </div>
+		    </div>
 	</div>
+	<div>
+	<h2>Recent Transaction</h2>
+	<!--Table-->
+	<table id="transactionTable" class="table">
+
+	    <!--Table head-->
+	    <thead class="mdb-color darken-3">
+	        <tr class="text-white">
+	            <th><h4>Date Time</h4></th>
+	            <th><h4>Type</h4></th>
+	            <th><h4>Amount (THB)</h4></th>
+	            <th><h4>Balance</h4></th>
+	            <th><h4>Remark</h4></th>
+	        </tr>
+	    </thead>
+	    <!--Table head-->
+
+	    <!--Table body-->
+	    <tbody>
+
+	    </tbody>
+	    <!--Table body-->
+	</table>
+	<!--Table-->
 	</div>
 </div>
 
@@ -31,6 +72,8 @@
 <script type="text/javascript" src="js/external/mdb.min.js"></script>
 <script type="text/javascript" src="js/chart.js"></script>
 <script type="text/javascript" src="js/colordictionary.js"></script>
+<script type="text/javascript" src="js/apiClient.js"></script>
+<script type="text/javascript" src="js/bankUI.js"></script>
 <script>
 
     $( window ).on( "load", function() {
@@ -39,6 +82,9 @@
         var responseFromBackend = '{"transactions": [ {"transactionName": "withdraw", "transactionValue": 2000},{"transactionName": "Deposit", "transactionValue": 1000}, {"transactionName": "Transfer", "transactionValue": 3000},{"transactionName": "Bill", "transactionValue": 4000}]}';
 
         renderChart( "pieChart", "pie", responseFromBackend );
+
+        callGetAccountSummary(3);
+       
     });
 
 </script>
