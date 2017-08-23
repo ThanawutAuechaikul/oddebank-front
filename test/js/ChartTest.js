@@ -1,8 +1,6 @@
 QUnit.test( "Test buildChartDataSet", function( assert ) {
-  // var mockResponseJson = ' {"transactions": [ {"transactionName": "withdraw", "transactionValue": 2000},{"transactionName": "Deposit", "transactionValue": 1000}, {"transactionName": "Transfer", "transactionValue": 3000},{"transactionName": "Bill", "transactionValue": 4000}]}';
   var mockResponseJson = '{"transactionTypes":[{"type":"BILL_PAYMENT","summaryAmount":500},{"type":"DEPOSIT","summaryAmount":22300},{"type":"TRANSFER","summaryAmount":300},{"type":"WITHDRAW","summaryAmount":1300}]}';
 
-  //build chartDataSet object
   var actualChartDataSet = buildChartDataSet( $.parseJSON( mockResponseJson ).transactionTypes );
 
   assert.deepEqual( actualChartDataSet.labels, ["BILL_PAYMENT", "DEPOSIT", "TRANSFER", "WITHDRAW"], "Check Labels array." );
