@@ -19,7 +19,7 @@
          </div>
 	</div>
 	<div class="col-md-9" style="background-color:lavenderblush;"> 
-	<div class="piearea">
+	<div class="chartArea">
 		<canvas id="pieChart"></canvas>
 	</div>
 	</div>
@@ -29,6 +29,18 @@
 <script type="text/javascript" src="js/external/popper.min.js"></script>
 <script type="text/javascript" src="js/external/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/external/mdb.min.js"></script>
-<script type="text/javascript" src="js/bankUI.js"></script>
+<script type="text/javascript" src="js/chart.js"></script>
+<script type="text/javascript" src="js/colordictionary.js"></script>
+<script>
+
+    $( window ).on( "load", function() {
+        //Mock Response
+        //var responseFromBackend = '{"transactions": [ {"transactionName": "Deposit", "transactionValue": 1000},{"transactionName": "Withdraw", "transactionValue": 2000},{"transactionName": "Transfer", "transactionValue": 3000},{"transactionName": "Bill", "transactionValue": 4000}]}';
+        var responseFromBackend = '{"transactions": [ {"transactionName": "withdraw", "transactionValue": 2000},{"transactionName": "Deposit", "transactionValue": 1000}, {"transactionName": "Transfer", "transactionValue": 3000},{"transactionName": "Bill", "transactionValue": 4000}]}';
+
+        renderChart( "pieChart", "pie", responseFromBackend );
+    });
+
+</script>
 </body>
 </html>
