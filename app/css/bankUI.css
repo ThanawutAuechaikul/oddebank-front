@@ -72,3 +72,19 @@
 .currency {
     text-align: right;
 }
+
+.DEPOSIT {
+    color: #26D0B4;
+}
+
+.WITHDRAW {
+    color: #F7464A;
+}
+
+.TRANSFER {
+    color: #FDB45C;
+}
+
+.BILL_PAYMENT {
+    color: #3B6BD3;
+}
