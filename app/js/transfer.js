@@ -61,7 +61,7 @@ function getTransferSessionData() {
     $('#toAccount').html(transferObj.transferSummary.toAccount.fullName + "<br/>");
     $('#toAccount').append(formatAccountDisplay(transferObj.transferSummary.toAccount.accountNumber));
     $('#amount').html(formatNumberDisplay(transferObj.transferSummary.amount));
-    $('#remark').html(transferObj.transferSummary.remark);
+    $('#remark').html(transferObj.transferSummary.fromRemark);
 }
 
 $('#cancelBtn').click(function () {
@@ -80,7 +80,7 @@ function buildSubmitObject() {
     tranferRequest.srcAccount = transferObj.transferSummary.fromAccount.accountNumber;
     tranferRequest.destAccount = transferObj.transferSummary.toAccount.accountNumber;
     tranferRequest.amount = transferObj.transferSummary.amount;
-    tranferRequest.remark = transferObj.transferSummary.remark;
+    tranferRequest.remark = transferObj.transferSummary.fromRemark;
 
     return JSON.stringify(tranferRequest);
 }
