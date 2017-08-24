@@ -9,14 +9,18 @@ function makeRequest(path, data, success, requestMethod)
 {
 	var url = baseURL + '/' + path;
     $.ajax({
-	  type: requestMethod,    	
-      url: url,
-      data: data,
-      success: success,
-      fail: function ()
-      {
-        console.log('GET request FAIL.');// Do generic failure handling here
-      }
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+	    type: requestMethod,
+        url: url,
+        data: data,
+        success: success,
+        fail: function ()
+        {
+          console.log('GET request FAIL.');// Do generic failure handling here
+         }
   });
 }
 
