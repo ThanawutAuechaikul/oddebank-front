@@ -53,6 +53,10 @@
     justify-content: center;
 }
 
+.pagination a{
+    font-size: 16px !important;
+}
+
 .card{
     min-height: 100px;
 }
