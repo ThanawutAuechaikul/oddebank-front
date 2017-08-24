@@ -12,6 +12,8 @@
 
 .vertical-menu {
     width: 100%; /* Set a width if you like */
+    height: 100%;
+    background-color: white;
 }
 
 .vertical-menu a {
@@ -20,6 +22,7 @@
     display: block; /* Make the links appear below each other */
     padding: 12px; /* Add some padding */
     text-decoration: none; /* Remove underline from links */
+
 }
 
 .vertical-menu a:hover {
@@ -27,7 +30,7 @@
 }
 
 .vertical-menu a.active {
-    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    background-color: #fec644; /* Add a green color to the "active/current" link */
     color: white;
 }
 
@@ -88,3 +91,27 @@
 .BILL_PAYMENT {
     color: #3B6BD3;
 }
+
+IMG.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+#left-panel-bg {
+
+    background-color: #f7f5c8;
+}
+
+.logo-bg {
+    background-color: white;
+}
+
+body{
+    background-color: #463E3F !important;
+}
+
+.piearea {
+    background-color: white;
+}
+
