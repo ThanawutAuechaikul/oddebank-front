@@ -61,3 +61,8 @@ function getTransferSessionData() {
     $('#amount').html(formatNumberDisplay(transferObj.transferReceipt.transferAmount));
     $('#remark').html(transferObj.transferReceipt.srcRemark);
 }
+
+$('#cancelBtn').click(function () {
+    $('#previewTransferForm').attr("action","transfer.html");
+    $('#previewTransferForm').submit();
+});
