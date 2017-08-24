@@ -43,17 +43,11 @@ function buildVerifyTransfer() {
 
 $("#submitBtn").click(function(){
     var jsonObj = buildVerifyTransfer();
+    makePOSTRequest('verify', jsonObj, navigateToPreview);
 
-    makePOSTRequest('transfer', jsonObj, navigateToPreview);
-
-    //$.ajax({url: "http://localhost:8090/transfer"
-    //    , data: jsonObj
-    //    , type:"POST"
-    //    , success: function(result){
-    //        console.log("success");
-    //    }});
 });
 
-function navigateToPreview(){
-    alert("success");
+function navigateToPreview(message){
+    localStorage.setItem("transferSession",JSON.stringify(message));
+    $("#transferForm").submit();
 }
