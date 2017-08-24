@@ -7,7 +7,20 @@ QUnit.test( "Test callGetTransactionHistory", function(assert){
     
     callGetTransactionHistory( accountId, offset, limit );
 
-    assert.equal($('#transactionTable tbody tr').length,10,'trans appear');
+    assert.equal($('#transactionTable tbody tr').length,10,'Render transaction table.');
 } )
+
+QUnit.test( "Test getCalculatedOffsetForPageNumber", function(assert) {
+    var pageNumber = 2;
+    var maxItemsAPage = 10;
+    var expectedOffset = 10;
+
+    var actualOffset = getCalculatedOffsetForPageNumber( pageNumber, maxItemsAPage );
+
+    assert.equal( actualOffset, expectedOffset, 'Calculate Offset.' );
+
+} )
+
+
 
 
