@@ -51,7 +51,7 @@ function drawAccountSummary(accountSummary){
     '<div class="card-header">' +
         'Account Summary </div>' + 
     '<div class="card-block"><p class="card-text"> Account Number : <span id="accountNumber">' + accountSummary.accountNumber +'</span></p>' + 
-        '<p class="card-text" >Balance : <span id="accountBalance">' + balance + '</span></p></div></div>');    
+        '<p class="card-text" >Balance (THB) : <span id="accountBalance">' + balance + '</span></p></div></div>');    
 }
 
 
