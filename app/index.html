@@ -70,11 +70,13 @@
 <script type="text/javascript" src="../node_modules/mdbootstrap/js/popper.min.js"></script>
 <script type="text/javascript" src="../node_modules/mdbootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../node_modules/mdbootstrap/js/mdb.min.js"></script>
+<script type="text/javascript" src="../node_modules/moment/moment.js"></script>
 <script type="text/javascript" src="js/chart.js"></script>
 <script type="text/javascript" src="js/apiClient.js"></script>
 <script type="text/javascript" src="js/bankUI.js"></script>
+<script type="text/javascript" src="js/dataFormatUtil.js"></script>
 <script>
-
+	
     $( window ).on( "load", function() {
 		var mockAccountId = 5;
         callGetChartData( "pieChart", "pie", mockAccountId );

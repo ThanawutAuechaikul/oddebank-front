@@ -12,6 +12,7 @@
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
     "mdbootstrap": "^4.4.1",
+    "moment": "^2.18.1",
     "qunit": "^1.0.0",
     "qunit-composite": "^2.0.0"
   }
