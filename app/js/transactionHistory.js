@@ -7,7 +7,11 @@ function renderTransactionHistoryTable(data){
     $("#transactionTable tbody tr").remove();   
     var tableBody = $("#transactionTable tbody");
     $.each(data.transactionHistories, function(index, item){
-        tableBody.append("<tr><td>"+ item.transactionDate+"</td><td>"+ item.transactionType+"</td><td>"+ item.amount+"</td><td>"+ item.balance+"</td><td>"+ item.remark+"</td></tr>");
+        var amount = dataFormatUtil.formatCurrency(item.amount);
+        var balance = dataFormatUtil.formatCurrency(item.balance);
+        var date = dataFormatUtil.formatDate(item.transactionDate);
+
+        tableBody.append("<tr><td>"+ date+"</td><td>"+ item.transactionType+"</td><td class='currency'>"+ amount+"</td><td class='currency'>"+ balance+"</td><td>"+ item.remark+"</td></tr>");
 
     })
 }
