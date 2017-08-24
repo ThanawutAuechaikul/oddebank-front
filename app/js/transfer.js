@@ -66,3 +66,25 @@ $('#cancelBtn').click(function () {
     $('#previewTransferForm').attr("action","transfer.html");
     $('#previewTransferForm').submit();
 });
+
+$('#confirmBtn').click(function () {
+    var submitObject = buildSubmitObject();
+    makePOSTRequest('transfer', submitObject, navigateToSummary);
+});
+
+function buildSubmitObject() {
+    var transferObj = JSON.parse(localStorage.getItem("transferSession"));
+    var tranferRequest = new Object();
+    tranferRequest.srcAccount = transferObj.transferReceipt.finalSourceAccount.accountNumber;
+    tranferRequest.destAccount = transferObj.transferReceipt.finalDestinationAccount.accountNumber;
+    tranferRequest.amount = transferObj.transferReceipt.transferAmount;
+    tranferRequest.remark = transferObj.transferReceipt.srcRemark;
+
+    return JSON.stringify(tranferRequest);
+}
+
+function navigateToSummary(message) {
+    localStorage.setItem("transferSession",JSON.stringify(message));
+    $('#previewTransferForm').attr("action","transferSummary.html");
+    $("#previewTransferForm").submit();
+}
