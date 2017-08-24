@@ -1,3 +1,7 @@
+// Prod
+// var baseURL = 'http://54.255.182.244:8090/';
+
+// Local
 var baseURL = 'http://localhost:8090';
 
 
