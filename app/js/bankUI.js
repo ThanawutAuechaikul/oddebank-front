@@ -42,7 +42,7 @@ var transactionData = [{
 drawTable(transactionData);
 
 function callGetAccountSummary(accountId){
-    makeGETRequest('/accountSummary/accountId/'+ accountId, '', drawAccountSummary);
+    makeGETRequest('/account/summary/'+ accountId, '', drawAccountSummary);
 }
 
 function callGetChartData( chartElementId, chartType, accountId ){
