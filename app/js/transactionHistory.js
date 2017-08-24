@@ -13,15 +13,18 @@ function renderTransactionHistoryTable(data){
 }
 
 var currentPage = 1;
+function renderTransactionHistory( totalTrans ){
+        var maxItemsAPage = 10;
+        var totalPage = Math.ceil(totalTrans/maxItemsAPage);
 
+        window.pagObj = $('#pagination').twbsPagination({
+            totalPages: totalPage,
+            visiblePages: maxItemsAPage,
+            onPageClick: function (event, page) {
+                currentPage = page;
+                callGetTransactionHistory(accountId, (page-1)*10, 10);
+            }
+        })
+    
+}
 
-$(function () {
-    window.pagObj = $('#pagination').twbsPagination({
-        totalPages: 35,
-        visiblePages: 10,
-        onPageClick: function (event, page) {
-            currentPage = page;
-            callGetTransactionHistory(accountId, (page-1)*10, 10);
-        }
-    })
-});
