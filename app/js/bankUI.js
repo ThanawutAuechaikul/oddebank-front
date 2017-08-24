@@ -68,11 +68,12 @@ function buildDashboardPage( accountId ){
 }
 
 function drawAccountSummary(accountSummary){
+    var balance = dataFormatUtil.formatCurrency(accountSummary.balance);
     $('.accounSummary').append('<div class="panel panel-primary"> ' +
                                     '<div class="panel-heading">' +
                                         '<h3 class="panel-title"> Account Summary </h3> </div>' + 
                                     '<div class="panel-body"> Account Number : <span id="accountNumber">' + accountSummary.accountNumber +'</span></br>' + 
-                                        'Balance : <span id="accountBalance">' + accountSummary.balance + '</span></div></div>');             
+                                        'Balance : <span id="accountBalance">' + balance + '</span></div></div>');             
 }
 
 
