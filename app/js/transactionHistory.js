@@ -3,7 +3,6 @@ function callGetTransactionHistory( accountId, offset, limit ){
 }
 
 function renderTransactionHistoryTable(data){
-    console.log(data);
     $("#transactionTable tbody tr").remove();   
     var tableBody = $("#transactionTable tbody");
     $.each(data.transactionHistories, function(index, item){
