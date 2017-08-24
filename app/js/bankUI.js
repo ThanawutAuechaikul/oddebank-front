@@ -1,3 +1,6 @@
+var accountId = 5;
+
+
 function drawTable(data){
     for (var i = 0; i < data.length; i++) {
         console.log(data[i]);
@@ -50,13 +53,17 @@ function callGetChartData( chartElementId, chartType, accountId ){
 }
 
 
+
+
+
+
 function drawAccountSummary(accountSummary){
     var balance = dataFormatUtil.formatCurrency(accountSummary.balance);
-    $('.accounSummary').append('<div class="panel panel-primary"> ' +
-                                    '<div class="panel-heading">' +
-                                        '<h3 class="panel-title"> Account Summary </h3> </div>' + 
-                                    '<div class="panel-body"> Account Number : <span id="accountNumber">' + accountSummary.accountNumber +'</span></br>' + 
-                                        'Balance : <span id="accountBalance">' + balance + '</span></div></div>');             
+    $('.accounSummary').append('<div class="card"> ' +
+    '<div class="card-header">' +
+        'Account Summary </div>' + 
+    '<div class="card-block"><p class="card-text"> Account Number : <span id="accountNumber">' + accountSummary.accountNumber +'</span></p>' + 
+        '<p class="card-text" >Balance : <span id="accountBalance">' + balance + '</span></p></div></div>');    
 }
 
 

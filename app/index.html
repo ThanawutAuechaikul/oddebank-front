@@ -21,25 +21,25 @@
          <a href="#"> Transaction History </a>
          </div>
 	</div>
-	<div class="col-md-9" style="background-color:lavenderblush;"> 
-	<div class="piearea">
-		    <div class="row">
-			    <div class="col">
-			     <div class="accounSummary">		
-			    	    	
-			     </div>
-			    
-			    </div>
-			    <div class="col">
-			      <canvas id="pieChart"></canvas>
-			    </div>
-			     
-			     <div class="col">
-			      1 of 3
-			    </div>
-		    </div>
-	</div>
-	<div>
+	<div class="col-md-9" > 
+		<div class="piearea">
+				<div class="row">
+					<div class="col">
+					<div class="accounSummary">		
+								
+					</div>
+					
+					</div>
+					<div class="col">
+					<canvas id="pieChart"></canvas>
+					</div>
+					
+					<div class="col">
+					1 of 3
+					</div>
+				</div>
+		</div>
+	
 	<h2>Recent Transaction</h2>
 	<!--Table-->
 	<table id="transactionTable" class="table">
@@ -62,6 +62,11 @@
 	    </tbody>
 	    <!--Table body-->
 	</table>
+	<div class="paginationnav">
+		<nav aria-label="Page navigation">
+			<ul class="pagination" id="pagination"></ul>
+		</nav>
+	</div>
 	<!--Table-->
 	</div>
 </div>
@@ -71,10 +76,12 @@
 <script type="text/javascript" src="../node_modules/mdbootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../node_modules/mdbootstrap/js/mdb.min.js"></script>
 <script type="text/javascript" src="../node_modules/moment/moment.js"></script>
+<script type="text/javascript" src="js/jquery.twbsPagination.min.js" ></script>
 <script type="text/javascript" src="js/chart.js"></script>
 <script type="text/javascript" src="js/apiClient.js"></script>
 <script type="text/javascript" src="js/bankUI.js"></script>
 <script type="text/javascript" src="js/dataFormatUtil.js"></script>
+<script type="text/javascript" src="js/transactionHistory.js"></script>
 <script>
 	
     $( window ).on( "load", function() {
@@ -82,7 +89,12 @@
         callGetChartData( "pieChart", "pie", mockAccountId );
         callGetAccountSummary( mockAccountId );
        
-    });
+	});
+	
+
+	
+
+    
 
 </script>
 </body>

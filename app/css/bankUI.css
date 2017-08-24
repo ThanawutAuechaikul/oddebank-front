@@ -1,6 +1,4 @@
-.body {
-	height:100%;
-}
+
 
 .menu {
 	padding-right: 0px;	
@@ -45,4 +43,28 @@
 .panel-heading span {
     margin-top: -20px;
     font-size: 15px;
+}
+
+.pagination{
+    display: flex !important;
+    justify-content: center;
+}
+
+.card{
+    min-height: 100px;
+}
+
+.card-text{
+    
+    font-size: 14px !important;
+    color: black !important;
+} 
+.card-block{
+    padding-left: 12.5px;
+    padding-top: 7.5px;
+}
+
+#transactionTable tbody tr td{
+    font-size: 14px;
+
 }
