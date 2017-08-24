@@ -26,7 +26,18 @@ function drawChart( chartElementId, chartType, chartDataSet )
             ]
         },
         options: {
-            responsive: true
+            responsive: true,
+            tooltips: {
+                callbacks: {
+                    label: function(tooltipItem, data) {
+                        console.log(tooltipItem);
+                        console.log(data);
+                        var index = tooltipItem.index;
+                        var text = data.labels[index] + ": " + dataFormatUtil.formatCurrency(data.datasets[0].data[index]);
+                        return text;
+                    }
+                }
+            }
         }
     });
 }
