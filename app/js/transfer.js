@@ -1,5 +1,7 @@
-makeGETRequest('user/' + '1' + '/accounts', '', loadAccountList);
 var accounts;
+function loadAccountByUserId() {
+    makeGETRequest('user/' + '1' + '/accounts', '', loadAccountList);
+}
 function loadAccountList(accountList) {
     accounts = accountList;
     for (var i=0; i<accountList.length; i++) {
@@ -54,12 +56,12 @@ function navigateToPreview(message){
 
 function getTransferSessionData() {
     var transferObj = JSON.parse(localStorage.getItem("transferSession"));
-    $('#sourceAccount').html(transferObj.transferReceipt.finalSourceAccount.fullName + "<br/>");
-    $('#sourceAccount').append(formatAccountDisplay(transferObj.transferReceipt.finalSourceAccount.accountNumber));
-    $('#toAccount').html(transferObj.transferReceipt.finalDestinationAccount.fullName + "<br/>");
-    $('#toAccount').append(formatAccountDisplay(transferObj.transferReceipt.finalDestinationAccount.accountNumber));
-    $('#amount').html(formatNumberDisplay(transferObj.transferReceipt.transferAmount));
-    $('#remark').html(transferObj.transferReceipt.srcRemark);
+    $('#fromAccount').html(transferObj.transferSummary.fromAccount.fullName + "<br/>");
+    $('#fromAccount').append(formatAccountDisplay(transferObj.transferSummary.fromAccount.accountNumber));
+    $('#toAccount').html(transferObj.transferSummary.toAccount.fullName + "<br/>");
+    $('#toAccount').append(formatAccountDisplay(transferObj.transferSummary.toAccount.accountNumber));
+    $('#amount').html(formatNumberDisplay(transferObj.transferSummary.amount));
+    $('#remark').html(transferObj.transferSummary.remark);
 }
 
 $('#cancelBtn').click(function () {
@@ -75,16 +77,26 @@ $('#confirmBtn').click(function () {
 function buildSubmitObject() {
     var transferObj = JSON.parse(localStorage.getItem("transferSession"));
     var tranferRequest = new Object();
-    tranferRequest.srcAccount = transferObj.transferReceipt.finalSourceAccount.accountNumber;
-    tranferRequest.destAccount = transferObj.transferReceipt.finalDestinationAccount.accountNumber;
-    tranferRequest.amount = transferObj.transferReceipt.transferAmount;
-    tranferRequest.remark = transferObj.transferReceipt.srcRemark;
+    tranferRequest.srcAccount = transferObj.transferSummary.fromAccount.accountNumber;
+    tranferRequest.destAccount = transferObj.transferSummary.toAccount.accountNumber;
+    tranferRequest.amount = transferObj.transferSummary.amount;
+    tranferRequest.remark = transferObj.transferSummary.remark;
 
     return JSON.stringify(tranferRequest);
 }
 
 function navigateToSummary(message) {
-    localStorage.setItem("transferSession",JSON.stringify(message));
+    localStorage.setItem("transferReceiptSession",JSON.stringify(message));
     $('#previewTransferForm').attr("action","transferSummary.html");
     $("#previewTransferForm").submit();
+}
+
+function getTransferReceiptSessionData() {
+    var transferObj = JSON.parse(localStorage.getItem("transferReceiptSession"));
+    $('#fromAccount').html(transferObj.transferSummary.fromAccount.fullName + "<br/>");
+    $('#fromAccount').append(formatAccountDisplay(transferObj.transferSummary.fromAccount.accountNumber));
+    $('#toAccount').html(transferObj.transferSummary.toAccount.fullName + "<br/>");
+    $('#toAccount').append(formatAccountDisplay(transferObj.transferSummary.toAccount.accountNumber));
+    $('#amount').html(formatNumberDisplay(transferObj.transferSummary.amount));
+    $('#balance').html(formatNumberDisplay(transferObj.transferSummary.balance));
 }
