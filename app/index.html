@@ -14,19 +14,18 @@
 
 
 <div class="row body" >
-	<div class="col-md-3 menu" style="background-color:lavender;"> 
+	<div class="col-md-3 menu"> 
          <div class="vertical-menu">
          <a href="#" class="active"> Home </a>
          <a href="#"> Transfer </a>
          <a href="#"> Transaction History </a>
          </div>
 	</div>
-	<div class="col-md-9" style="background-color:lavenderblush;"> 
+	<div class="col-md-9" > 
 	<div class="piearea">
 		    <div class="row">
 			    <div class="col">
-			     <div class="accounSummary">		
-			    	    	
+			     	<div class="accounSummary">		    	
 			     </div>
 			    
 			    </div>
@@ -34,16 +33,13 @@
 			      <canvas id="pieChart"></canvas>
 			    </div>
 			     
-			     <div class="col">
-			      1 of 3
-			    </div>
+			     <div class="col"></div>
 		    </div>
 	</div>
 	<div>
 	<h2>Recent Transaction</h2>
 	<!--Table-->
 	<table id="transactionTable" class="table">
-
 	    <!--Table head-->
 	    <thead class="mdb-color darken-3">
 	        <tr class="text-white">
@@ -70,16 +66,17 @@
 <script type="text/javascript" src="../node_modules/mdbootstrap/js/popper.min.js"></script>
 <script type="text/javascript" src="../node_modules/mdbootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../node_modules/mdbootstrap/js/mdb.min.js"></script>
+<script type="text/javascript" src="../node_modules/moment/moment.js"></script>
 <script type="text/javascript" src="js/chart.js"></script>
 <script type="text/javascript" src="js/apiClient.js"></script>
 <script type="text/javascript" src="js/bankUI.js"></script>
+<script type="text/javascript" src="js/dataFormatUtil.js"></script>
 <script>
-
+	
     $( window ).on( "load", function() {
 		var mockAccountId = 5;
-        callGetChartData( "pieChart", "pie", mockAccountId );
-        callGetAccountSummary( mockAccountId );
-       
+		buildDashboardPage( mockAccountId );
+		callGetAccountSummary( mockAccountId );
     });
 
 </script>
