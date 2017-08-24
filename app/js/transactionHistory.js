@@ -16,7 +16,7 @@ function renderTransactionHistoryTable(data){
 }
 
 var currentPage = 1;
-function renderTransactionHistory( totalTrans ){
+function renderTransactionHistory( totalTrans, accountId ){
         var maxItemsAPage = 10;
         var totalPage = Math.ceil(totalTrans/maxItemsAPage);
 

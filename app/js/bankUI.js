@@ -36,7 +36,7 @@ function buildDashboardPage( accountId ){
         var isShow = totalCountTransaction!=0;
         if( isShow )
 		{
-            renderTransactionHistory( totalCountTransaction );
+            renderTransactionHistory( totalCountTransaction, accountId );
             callGetChartData( "pieChart", "pie", accountId );
 		}else
 		{
