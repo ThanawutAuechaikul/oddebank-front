@@ -43,17 +43,26 @@ function buildVerifyTransfer() {
 
 $("#submitBtn").click(function(){
     var jsonObj = buildVerifyTransfer();
+    makePOSTRequest('verify', jsonObj, navigateToPreview);
 
-    makePOSTRequest('transfer', jsonObj, navigateToPreview);
-
-    //$.ajax({url: "http://localhost:8090/transfer"
-    //    , data: jsonObj
-    //    , type:"POST"
-    //    , success: function(result){
-    //        console.log("success");
-    //    }});
 });
 
-function navigateToPreview(){
-    alert("success");
+function navigateToPreview(message){
+    localStorage.setItem("transferSession",JSON.stringify(message));
+    $("#transferForm").submit();
 }
+
+function getTransferSessionData() {
+    var transferObj = JSON.parse(localStorage.getItem("transferSession"));
+    $('#sourceAccount').html(transferObj.transferReceipt.finalSourceAccount.fullName + "<br/>");
+    $('#sourceAccount').append(formatAccountDisplay(transferObj.transferReceipt.finalSourceAccount.accountNumber));
+    $('#toAccount').html(transferObj.transferReceipt.finalDestinationAccount.fullName + "<br/>");
+    $('#toAccount').append(formatAccountDisplay(transferObj.transferReceipt.finalDestinationAccount.accountNumber));
+    $('#amount').html(formatNumberDisplay(transferObj.transferReceipt.transferAmount));
+    $('#remark').html(transferObj.transferReceipt.srcRemark);
+}
+
+$('#cancelBtn').click(function () {
+    $('#previewTransferForm').attr("action","transfer.html");
+    $('#previewTransferForm').submit();
+});

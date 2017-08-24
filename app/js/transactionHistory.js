@@ -10,7 +10,7 @@ function renderTransactionHistoryTable(data){
         var balance = dataFormatUtil.formatCurrency(item.balance);
         var date = dataFormatUtil.formatDate(item.transactionDate);
 
-        tableBody.append("<tr><td>"+ date+"</td><td>"+ item.transactionType+"</td><td class='currency'>"+ amount+"</td><td class='currency'>"+ balance+"</td><td>"+ item.remark+"</td></tr>");
+        tableBody.append("<tr><td>"+ date+"</td><td class='"+item.transactionType+"'>"+ item.transactionType+"</td><td class='currency "+item.transactionType+"'>"+ amount+"</td><td class='currency'>"+ balance+"</td><td>"+ item.remark+"</td></tr>");
 
     })
 }
