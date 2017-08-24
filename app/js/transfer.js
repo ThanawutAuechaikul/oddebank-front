@@ -51,3 +51,13 @@ function navigateToPreview(message){
     localStorage.setItem("transferSession",JSON.stringify(message));
     $("#transferForm").submit();
 }
+
+function getTransferSessionData() {
+    var transferObj = JSON.parse(localStorage.getItem("transferSession"));
+    $('#sourceAccount').html(transferObj.transferReceipt.finalSourceAccount.fullName + "<br/>");
+    $('#sourceAccount').append(formatAccountDisplay(transferObj.transferReceipt.finalSourceAccount.accountNumber));
+    $('#toAccount').html(transferObj.transferReceipt.finalDestinationAccount.fullName + "<br/>");
+    $('#toAccount').append(formatAccountDisplay(transferObj.transferReceipt.finalDestinationAccount.accountNumber));
+    $('#amount').html(formatNumberDisplay(transferObj.transferReceipt.transferAmount));
+    $('#remark').html(transferObj.transferReceipt.srcRemark);
+}
