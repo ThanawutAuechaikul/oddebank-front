@@ -3,7 +3,6 @@ var accountId = 5;
 
 function drawTable(data){
     for (var i = 0; i < data.length; i++) {
-        console.log(data[i]);
         drawRow(data[i]);
     }
 }
@@ -24,28 +23,6 @@ function showNoTransaction(){
     $('#transactionTable').append($("<tr/> <td colspan='5' style='text-align: center;'><h4>  There is no transaction. </h4></td>"));
 }
 
-var transactionData = [{
-    datetime:'August 21,2017 10:12:13',
-    transactionType:'Deposit',
-    amount:'1,000',
-    balance:'123,456',
-    remark:''
-},
-{
-    datetime:'August 21,2017 10:12:13',
-    transactionType:'Deposit',
-    amount:'1,000',
-    balance:'123,456',
-    remark:''
-},
-{
-    datetime:'August 21,2017 10:12:13',
-    transactionType:'Deposit',
-    amount:'1,000',
-    balance:'123,456',
-    remark:''
-}];
-
 function callGetAccountSummary(accountId){
     makeGETRequest('/account/summary/'+ accountId, '', drawAccountSummary);
 }
@@ -61,19 +38,12 @@ function buildDashboardPage( accountId ){
 		{
             renderTransactionHistory( totalCountTransaction );
             callGetChartData( "pieChart", "pie", accountId );
-            
-			//call Transaction Table
-            drawTable(transactionData);
 		}else
 		{
             showNoTransaction();
 		}
     } );
 }
-
-
-
-
 
 function drawAccountSummary(accountSummary){
     var balance = dataFormatUtil.formatCurrency(accountSummary.balance);
