@@ -25,8 +25,7 @@
 	<div class="piearea">
 		    <div class="row">
 			    <div class="col">
-			     <div class="accounSummary">		
-			    	    	
+			     	<div class="accounSummary">		    	
 			     </div>
 			    
 			    </div>
@@ -34,16 +33,13 @@
 			      <canvas id="pieChart"></canvas>
 			    </div>
 			     
-			     <div class="col">
-			      1 of 3
-			    </div>
+			     <div class="col"></div>
 		    </div>
 	</div>
 	<div>
 	<h2>Recent Transaction</h2>
 	<!--Table-->
 	<table id="transactionTable" class="table">
-
 	    <!--Table head-->
 	    <thead class="mdb-color darken-3">
 	        <tr class="text-white">
@@ -76,10 +72,9 @@
 <script>
 
     $( window ).on( "load", function() {
-		var mockAccountId = 5;
-        callGetChartData( "pieChart", "pie", mockAccountId );
-        callGetAccountSummary( mockAccountId );
-       
+		var mockAccountId = 3;
+		buildDashboardPage( mockAccountId );
+		callGetAccountSummary( mockAccountId );
     });
 
 </script>
