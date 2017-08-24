@@ -14,7 +14,7 @@
 
 
 <div class="row body" >
-	<div class="col-md-3 menu" style="background-color:lavender;"> 
+	<div class="col-md-3 menu"> 
          <div class="vertical-menu">
          <a href="#" class="active"> Home </a>
          <a href="#"> Transfer </a>
@@ -22,28 +22,24 @@
          </div>
 	</div>
 	<div class="col-md-9" > 
-		<div class="piearea">
-				<div class="row">
-					<div class="col">
-					<div class="accounSummary">		
-								
-					</div>
-					
-					</div>
-					<div class="col">
-					<canvas id="pieChart"></canvas>
-					</div>
-					
-					<div class="col">
-					1 of 3
-					</div>
-				</div>
-		</div>
-	
+	<div class="piearea">
+		    <div class="row">
+			    <div class="col">
+			     	<div class="accounSummary">		    	
+			     </div>
+			    
+			    </div>
+			    <div class="col">
+			      <canvas id="pieChart"></canvas>
+			    </div>
+			     
+			     <div class="col"></div>
+		    </div>
+	</div>
+	<div>
 	<h2>Recent Transaction</h2>
 	<!--Table-->
 	<table id="transactionTable" class="table">
-
 	    <!--Table head-->
 	    <thead class="mdb-color darken-3">
 	        <tr class="text-white">
@@ -86,15 +82,9 @@
 	
     $( window ).on( "load", function() {
 		var mockAccountId = 5;
-        callGetChartData( "pieChart", "pie", mockAccountId );
-        callGetAccountSummary( mockAccountId );
-       
-	});
-	
-
-	
-
-    
+		buildDashboardPage( mockAccountId );
+		callGetAccountSummary( mockAccountId );
+    });
 
 </script>
 </body>

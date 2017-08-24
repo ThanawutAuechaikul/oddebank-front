@@ -12,12 +12,16 @@ function drawTable(data){
 
 function drawRow(rowData){
     var row = $("<tr />");
-    $('.transactionTable').append(row);
+    $('#transactionTable').append(row);
     row.append($("<td>" + rowData.datetime + "</td>"));
     row.append($("<td>" + rowData.transactionType + "</td>"));
     row.append($("<td>" + rowData.amount + "</td>"));
     row.append($("<td>" + rowData.balance + "</td>"));
     row.append($("<td>" + rowData.remark + "</td>"));
+}
+
+function showNoTransaction(){
+    $('#transactionTable').append($("<tr/> <td colspan='5' style='text-align: center;'><h4>  There is no transaction. </h4></td>"));
 }
 
 var transactionData = [{
@@ -42,8 +46,6 @@ var transactionData = [{
     remark:''
 }];
 
-drawTable(transactionData);
-
 function callGetAccountSummary(accountId){
     makeGETRequest('/account/summary/'+ accountId, '', drawAccountSummary);
 }
@@ -52,6 +54,21 @@ function callGetChartData( chartElementId, chartType, accountId ){
     makeGETRequest( '/dashboard/piechart/'+ accountId, '', function ( data ){ renderChart( chartElementId, chartType, data ) } );
 }
 
+function buildDashboardPage( accountId ){
+    makeGETRequest( 'dashboard/transaction/count/'+ accountId, '', function ( totalCountTransaction ){ 
+        var isShow = totalCountTransaction!=0;
+        if( isShow )
+		{
+            callGetChartData( "pieChart", "pie", accountId );
+            
+			//call Transaction Table
+            drawTable(transactionData);
+		}else
+		{
+            showNoTransaction();
+		}
+    } );
+}
 
 
 
