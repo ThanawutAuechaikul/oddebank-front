@@ -25,9 +25,14 @@ function renderTransactionHistory( totalTrans ){
             visiblePages: maxItemsAPage,
             onPageClick: function (event, page) {
                 currentPage = page;
-                callGetTransactionHistory(accountId, (page-1)*10, 10);
+                callGetTransactionHistory(accountId, getCalculatedOffsetForPageNumber(page, maxItemsAPage) , maxItemsAPage);
             }
         })
     
+}
+
+function getCalculatedOffsetForPageNumber( pageNumber, maxItemsAPage )  
+{
+    return ( pageNumber - 1 ) * maxItemsAPage;
 }
 
