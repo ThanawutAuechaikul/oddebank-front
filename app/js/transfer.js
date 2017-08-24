@@ -30,3 +30,30 @@ function checkSubmitBtn(){
 function formatNumber(x){
     x.value = parseFloat(x.value).toFixed(2);
 }
+
+function buildVerifyTransfer() {
+    var tranferRequest = new Object();
+    tranferRequest.srcAccount = accounts[$('#fromAccount').val()].accountNumber;
+    tranferRequest.destAccount = $('#toAccount').val();
+    tranferRequest.amount = $('#amount').val();
+    tranferRequest.remark = $('#remark').val();
+
+    return JSON.stringify(tranferRequest);
+}
+
+$("#submitBtn").click(function(){
+    var jsonObj = buildVerifyTransfer();
+
+    makePOSTRequest('transfer', jsonObj, navigateToPreview);
+
+    //$.ajax({url: "http://localhost:8090/transfer"
+    //    , data: jsonObj
+    //    , type:"POST"
+    //    , success: function(result){
+    //        console.log("success");
+    //    }});
+});
+
+function navigateToPreview(){
+    alert("success");
+}
