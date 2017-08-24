@@ -65,25 +65,7 @@
 <script type="text/javascript" src="../node_modules/mdbootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../node_modules/mdbootstrap/js/mdb.min.js"></script>
 <script type="text/javascript" src="js/apiClient.js"></script>
-<script type="text/javascript" src="js/bankUI.js"></script>
-<script>
-	makeGETRequest('/getAccountListByUserId/'+ "1", '', loadAccountList);
+<script type="text/javascript" src="js/transfer.js"></script>
 
-	function loadAccountList(accountList) {
-	    for (var i=0; i<accountList.length; i++) {
-	        $('#fromAccount').append("<option value=" + accountList[i].id + ">" +
-				formatAccountDisplay(accountList[i].accountNumber) + " (" + formatNumberDisplay(accountList[i].balance) +
-				")</option>");
-		}
-	}
-
-    function formatNumberDisplay(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-
-    function formatAccountDisplay(x) {
-        return x.replace(/(\d{3})(\d{3})(\d{3})(\d{1})/, "$1-$2-$3-$4");
-    }
-</script>
 </body>
 </html>
