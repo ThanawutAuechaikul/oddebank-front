@@ -123,3 +123,7 @@ body{
     border-radius: 0rem;
     background-color: #f7f5c8;
 }
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: ">";
+}
