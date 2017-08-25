@@ -1,4 +1,3 @@
-var accountId = 5;
 
 function showNoTransaction(){
     $('#transactionTable').append($("<tr/> <td colspan='5' style='text-align: center;'><h4>  There is no transaction. </h4></td>"));
