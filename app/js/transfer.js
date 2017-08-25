@@ -21,12 +21,16 @@ function formatAccountDisplay(x) {
 
 
 function checkSubmitBtn(){
-
+    clearErrorMessage();
     if($('#toAccount').val().length == 10 && $('#amount').val()>0 && $('#amount').val() <= accounts[$('#fromAccount').val()].balance){
         $('#submitBtn').prop('disabled', false);
     }else{
         $('#submitBtn').prop('disabled', true);
     }
+}
+
+function clearErrorMessage() {
+    $("#errorMessage").html("");
 }
 
 function formatNumber(x){
@@ -50,8 +54,12 @@ $("#submitBtn").click(function(){
 });
 
 function navigateToPreview(message){
-    localStorage.setItem("transferSession",JSON.stringify(message));
-    $("#transferForm").submit();
+    if(message.status == 'FAILED'){
+        $("#errorMessage").html(message.errorMessage);
+    }else {
+        localStorage.setItem("transferSession", JSON.stringify(message));
+        $("#transferForm").submit();
+    }
 }
 
 function mapFieldValue(transferObj) {
