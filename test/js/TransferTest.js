@@ -6,3 +6,9 @@ QUnit.test( "Test format number", function( assert ) {
   assert.equal(formatNumberDisplay( "1234567" ), "1,234,567.00");
 
 });
+
+QUnit.test( "Test format account", function( assert ) {
+
+  assert.equal(formatAccountDisplay( "1234567897" ), "123-456-789-7");
+
+});
