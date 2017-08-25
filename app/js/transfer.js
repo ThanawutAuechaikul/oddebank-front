@@ -1,6 +1,6 @@
 var accounts;
 function loadAccountByUserId() {
-    makeGETRequest('user/' + '1' + '/accounts', '', loadAccountList);
+    makeGETRequest('user/' + '4' + '/accounts', '', loadAccountList);
 }
 function loadAccountList(accountList) {
     accounts = accountList;
@@ -70,6 +70,8 @@ function mapFieldValue(transferObj) {
     $('#amount').html(formatNumberDisplay(transferObj.transferSummary.amount));
     $('#remark').html(transferObj.transferSummary.fromRemark);
     $('#balance').html(formatNumberDisplay(transferObj.transferSummary.balance));
+    $('#transactionTimestamp').html(transferObj.transferSummary.transactionTime);
+    $('#eventId').html(transferObj.transferSummary.eventId);
 }
 
 function getTransferSessionData() {
@@ -124,7 +126,7 @@ function buildUpdateObject() {
 }
 
 function navigateToHome(message) {
-    if(message.transferSummary.status == 'SUCCESS'){
+    if(message.status == 'SUCCESS'){
         $("#transactionSummaryForm").submit();
     }
 }
