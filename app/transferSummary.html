@@ -28,35 +28,35 @@
     </div>
     <div class="col-md-9" style="background-color:lavenderblush;">
         <div>
-            <form>
+            <form id="summaryForm">
                 <input type="hidden" id="eventId" value=""/>
                 <div class="form-group row">
-                    <label for="fromAccount" class="col-sm-2 col-form-label">From Account</label>
-                    <div id="fromAccount" class="col-sm-5"/>
+                    <label for="fromAccount" class="col-sm-2 col-form-label font-weight-bold">From Account</label>
+                    <div id="fromAccount" class="col-sm-5"></div>
                 </div>
                 <div class="form-group row">
-                    <label for="toAccount" class="col-sm-2 col-form-label">To Account</label>
-                    <div id="toAccount" class="col-sm-5"/>
+                    <label for="toAccount" class="col-sm-2 col-form-label font-weight-bold">To Account</label>
+                    <div id="toAccount" class="col-sm-5"></div>
                 </div>
                 <div class="form-group row">
-                    <label for="amount" class="col-sm-2 col-form-label">Amount (THB)</label>
-                    <div id="amount" class="col-sm-5"/>
+                    <label for="amount" class="col-sm-2 col-form-label font-weight-bold">Amount (THB)</label>
+                    <div id="amount" class="col-sm-5"></div>
                 </div>
                 <div class="form-group row">
-                    <label for="balance" class="col-sm-2 col-form-label">Balance (THB)</label>
-                    <div id="balance" class="col-sm-5"/>
+                    <label for="balance" class="col-sm-2 col-form-label font-weight-bold">Balance (THB)</label>
+                    <div id="balance" class="col-sm-5"></div>
                 </div>
                 <div class="form-group row">
-                    <label for="receiveRemark" class="col-sm-2 col-form-label">Note</label>
+                    <label for="receiveRemark" class="col-sm-2 col-form-label font-weight-bold">Note</label>
                     <div class="col-sm-5">
                         <textarea id="receiveRemark" maxlength="144"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <label for="email" class="col-sm-2 col-form-label font-weight-bold">Email</label>
                     <div class="col-sm-5">
-                        <input type="checkbox" id="isSentEmail" onchange="updateEmailBtn()">
-                        <input type="email" id="email" maxlength="50" disabled>
+                        <input type="checkbox" id="isSentEmail" onchange="updateEmailBtn()"/>
+                        <input type="email" id="email" maxlength="50" disabled/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -85,6 +85,7 @@
                 document.getElementById("email").disabled = true;
             }
         }
+
 </script>
 </body>
 </html>

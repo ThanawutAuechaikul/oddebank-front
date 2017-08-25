@@ -63,10 +63,10 @@ function navigateToPreview(message){
 }
 
 function mapFieldValue(transferObj) {
-    $('#fromAccount').html(transferObj.transferSummary.fromAccount.fullName + "<br/>" +
-        formatAccountDisplay(transferObj.transferSummary.fromAccount.accountNumber));
-    $('#toAccount').html(transferObj.transferSummary.toAccount.fullName + "<br/>" +
-        formatAccountDisplay(transferObj.transferSummary.toAccount.accountNumber));
+    $('#fromAccount').html(transferObj.transferSummary.fromAccount.fullName + " (" +
+        formatAccountDisplay(transferObj.transferSummary.fromAccount.accountNumber) + ")");
+    $('#toAccount').html(transferObj.transferSummary.toAccount.fullName + " (" +
+        formatAccountDisplay(transferObj.transferSummary.toAccount.accountNumber) + ")");
     $('#amount').html(formatNumberDisplay(transferObj.transferSummary.amount));
     $('#remark').html(transferObj.transferSummary.fromRemark);
     $('#balance').html(formatNumberDisplay(transferObj.transferSummary.balance));

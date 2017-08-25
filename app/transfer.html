@@ -29,26 +29,26 @@
 		<div>
 			<form id="transferForm" action="transferPreview.html">
 				<div class="form-group row">
-					<label for="fromAccount" class="col-sm-2 col-form-label">From Acoount</label>
+					<label for="fromAccount" class="col-sm-2 col-form-label font-weight-bold">From Account</label>
 					<div class="col-sm-5">
 						<select id="fromAccount">
 						</select>
 					</div>
 				</div>
 				<div class="form-group row">
-					<label for="toAccount" class="col-sm-2 col-form-label">To Account</label>
+					<label for="toAccount" class="col-sm-2 col-form-label font-weight-bold">To Account</label>
 					<div class="col-sm-5">
 						<input type="text" id="toAccount" maxlength="10" onchange="checkSubmitBtn();">
 					</div>
 				</div>
 				<div class="form-group row">
-					<label for="amount" class="col-sm-2 col-form-label">Amount (THB)</label>
+					<label for="amount" class="col-sm-2 col-form-label font-weight-bold">Amount (THB)</label>
 					<div class="col-sm-5">
 						<input type="number" id="amount" min="1" onchange="formatNumber(this);checkSubmitBtn();">
 					</div>
 				</div>
 				<div class="form-group row">
-					<label for="remark" class="col-sm-2 col-form-label">Note</label>
+					<label for="remark" class="col-sm-2 col-form-label font-weight-bold">Note</label>
 					<div class="col-sm-5">
 						<textarea id="remark" maxlength="144"></textarea>
 					</div>
