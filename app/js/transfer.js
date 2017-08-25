@@ -54,14 +54,19 @@ function navigateToPreview(message){
     $("#transferForm").submit();
 }
 
-function getTransferSessionData() {
-    var transferObj = JSON.parse(localStorage.getItem("transferSession"));
-    $('#fromAccount').html(transferObj.transferSummary.fromAccount.fullName + "<br/>");
-    $('#fromAccount').append(formatAccountDisplay(transferObj.transferSummary.fromAccount.accountNumber));
-    $('#toAccount').html(transferObj.transferSummary.toAccount.fullName + "<br/>");
-    $('#toAccount').append(formatAccountDisplay(transferObj.transferSummary.toAccount.accountNumber));
+function mapFieldValue(transferObj) {
+    $('#fromAccount').html(transferObj.transferSummary.fromAccount.fullName + "<br/>" +
+        formatAccountDisplay(transferObj.transferSummary.fromAccount.accountNumber));
+    $('#toAccount').html(transferObj.transferSummary.toAccount.fullName + "<br/>" +
+        formatAccountDisplay(transferObj.transferSummary.toAccount.accountNumber));
     $('#amount').html(formatNumberDisplay(transferObj.transferSummary.amount));
     $('#remark').html(transferObj.transferSummary.fromRemark);
+    $('#balance').html(formatNumberDisplay(transferObj.transferSummary.balance));
+}
+
+function getTransferSessionData() {
+    var transferObj = JSON.parse(localStorage.getItem("transferSession"));
+    mapFieldValue(transferObj);
 }
 
 $('#cancelBtn').click(function () {
@@ -93,10 +98,5 @@ function navigateToSummary(message) {
 
 function getTransferReceiptSessionData() {
     var transferObj = JSON.parse(localStorage.getItem("transferReceiptSession"));
-    $('#fromAccount').html(transferObj.transferSummary.fromAccount.fullName + "<br/>");
-    $('#fromAccount').append(formatAccountDisplay(transferObj.transferSummary.fromAccount.accountNumber));
-    $('#toAccount').html(transferObj.transferSummary.toAccount.fullName + "<br/>");
-    $('#toAccount').append(formatAccountDisplay(transferObj.transferSummary.toAccount.accountNumber));
-    $('#amount').html(formatNumberDisplay(transferObj.transferSummary.amount));
-    $('#balance').html(formatNumberDisplay(transferObj.transferSummary.balance));
+    mapFieldValue(transferObj);
 }
