@@ -1,8 +1,8 @@
 // Prod
-// var baseURL = 'http://54.255.182.244:8090/';
+var baseURL = 'http://54.255.182.244:8090/';
 
 // Local
-var baseURL = 'http://localhost:8090';
+//var baseURL = 'http://localhost:8090';
 
 
 function makeRequest(path, data, success, requestMethod)
