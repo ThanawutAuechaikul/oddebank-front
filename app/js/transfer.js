@@ -11,8 +11,8 @@ function loadAccountList(accountList) {
     }
 }
 
-function formatNumberDisplay(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+function formatNumberDisplay(number) {
+    return numeral(number).format('0,0.00');
 }
 
 function formatAccountDisplay(x) {
