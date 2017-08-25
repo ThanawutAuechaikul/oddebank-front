@@ -35,7 +35,6 @@
 }
 
 .row{
-    margin-top:40px;
     padding: 0 10px;
 }
 
@@ -119,3 +118,8 @@ body{
     background-color: white;
 }
 
+.breadcrumb {
+    margin-bottom: 0rem;
+    border-radius: 0rem;
+    background-color: #f7f5c8;
+}
