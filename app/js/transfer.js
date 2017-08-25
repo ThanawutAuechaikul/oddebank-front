@@ -108,3 +108,23 @@ function getTransferReceiptSessionData() {
     var transferObj = JSON.parse(localStorage.getItem("transferReceiptSession"));
     mapFieldValue(transferObj);
 }
+
+$('#updateBtn').click(function () {
+    var updateObj = buildUpdateObject();
+    makePOSTRequest('complete', updateObj, navigateToHome);
+});
+
+function buildUpdateObject() {
+    var transferObj = JSON.parse(localStorage.getItem("transferReceiptSession"));
+    var tranferRequest = new Object();
+    tranferRequest.eventId = transferObj.transferSummary.eventId;
+    tranferRequest.remark = $("#receiveRemark").val();
+
+    return JSON.stringify(tranferRequest);
+}
+
+function navigateToHome(message) {
+    if(message.transferSummary.status == 'SUCCESS'){
+        $("#transactionSummaryForm").submit();
+    }
+}
