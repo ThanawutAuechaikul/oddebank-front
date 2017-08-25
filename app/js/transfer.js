@@ -120,7 +120,7 @@ function buildUpdateObject() {
     var transferObj = JSON.parse(localStorage.getItem("transferReceiptSession"));
     var tranferRequest = new Object();
     tranferRequest.eventId = transferObj.transferSummary.eventId;
-    tranferRequest.remark = $("#receiveRemark").val();
+    tranferRequest.remarkTo = $("#receiveRemark").val();
 
     return JSON.stringify(tranferRequest);
 }
